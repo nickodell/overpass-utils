@@ -1,0 +1,16 @@
+[Unit]
+Description=OSM fetch
+After=osm-dispatcher.service
+
+[Service]
+Type=simple
+User=overpass
+Group=overpass
+WorkingDirectory=/home/overpass
+Environment=PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin/
+ExecStart=/home/overpass/run_fetch.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
